@@ -8,6 +8,13 @@ public class Battery {
     private int mahPerFrame;
     private int mahPerMinute;
 
+    /** Constructor */
+    // Generic values
+    Battery () {
+        mah = 2500;
+        mahPerMinute = 3;
+        mahPerFrame = 2;
+    }
 
     float getConsumption(int frameCount, float durationMinutes) {
         int powerForFrames = frameCount * mahPerFrame;
@@ -17,11 +24,5 @@ public class Battery {
         return consumption;
     }
 
-    /** Constructor */
-    // Generic values
-    Battery () {
-        mah = 2500;
-        mahPerMinute = 3;
-        mahPerFrame = 2;
-    }
+
 }

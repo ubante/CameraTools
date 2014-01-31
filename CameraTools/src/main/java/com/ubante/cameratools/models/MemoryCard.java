@@ -7,6 +7,10 @@ public class MemoryCard {
 
     private int capacity; // in GB
 
+    MemoryCard (int capacity) {
+        this.capacity = capacity;
+    }
+
     int getCapacity() {
         return capacity;
     }
@@ -23,7 +27,5 @@ public class MemoryCard {
         return percentageConsumed;
     }
 
-    MemoryCard (int capacity) {
-        this.capacity = capacity;
-    }
+
 }

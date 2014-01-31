@@ -88,7 +88,7 @@ public class Intervalometer {
         this.startDelay = delay;
     }
 
-    void setStartDelayHours(int delayHours) {
+    public void setStartDelayHours(int delayHours) {
         setStartDelay(delayHours*3600);
     }
 

@@ -12,6 +12,13 @@ public class Output {
     private Movie m;
     private Reality r;
 
+    /** Constructor */
+    public Output (Intervalometer s, Movie m, Reality r) {
+        this.i = s;
+        this.m = m;
+        this.r = r;
+    }
+
     /** This is the message displayed before the user enters intervalometer settings.
      *  It will give reminders for setting up.
      */
@@ -58,11 +65,6 @@ public class Output {
         }
 
         // check for 400 frame limit of LRTimelapse
-//        if (i.getNumberOfFrames() > Movie.MAXFRAMESALLOWEDBYFREETLTIMELAPSE) {
-//            notes.add(String.format(
-//                    "WARNING: %d is too many frames for one movie made with the free version of TLTimelapse",
-//                    i.getNumberOfFrames()));
-//        }
         if (m.isTooLongForFreeloaders()) {
             notes.add(String.format(
                     "WARNING: %d is too many frames for one movie made with the free version of TLTimelapse",
@@ -70,9 +72,6 @@ public class Output {
         }
 
         // my intervalometers starts two seconds early for focusing - make a note
-//        if (i.getIntervalBetweenFrames() <= 2) {
-//            notes.add("WARNING: your delay between frames may get in the way of the intervalometer pre-focusing.");
-//        }
         if (i.isIntervalTooShort()) {
             notes.add("WARNING: your delay between frames may get in the way of the intervalometer pre-focusing.");
         }
@@ -137,10 +136,5 @@ public class Output {
         return out;
     }
 
-    /** Constructor */
-    public Output (Intervalometer s, Movie m, Reality r) {
-        this.i = s;
-        this.m = m;
-        this.r = r;
-    }
+
 }

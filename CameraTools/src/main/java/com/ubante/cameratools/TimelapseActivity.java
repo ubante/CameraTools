@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ubante.cameratools.models.Intervalometer;
 import com.ubante.cameratools.models.Movie;
@@ -20,7 +21,7 @@ import com.ubante.cameratools.models.Reality;
  * To do:
  * - change background to something dark
  * -- add this as an option
- * - plug in the delay to first frame
+ * - handle NPE on empty et fields
  * - scrollable
  * -- change from FrameLayout?
  * - clear screen
@@ -52,7 +53,6 @@ public class TimelapseActivity extends ActionBarActivity {
 //        }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -72,7 +72,7 @@ public class TimelapseActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//
+
 //    /**
 //     * A placeholder fragment containing a simple view.
 //     */
@@ -91,19 +91,31 @@ public class TimelapseActivity extends ActionBarActivity {
 
     public void onCompute(View v) {
         // what happens when the Compute button is clicked
-//        String delayString2 = etDelayBetweenFrames.getText().toString();
-//        String numberOfFrames2 = etNumberOfFrames.getText().toString();
-//        String shutterSpeed2 = etShutterSpeed.getText().toString();
-        String delayString = etDelayBetweenFrames.getText().toString();
-        String numberOfFrames = etNumberOfFrames.getText().toString();
-        String shutterSpeed = etShutterSpeed.getText().toString();
+        String delay, numberOfFrames, shutterSpeed, delayToFirstFrame, fps;
 
-        Intervalometer intervalometer = new Intervalometer(delayString,numberOfFrames,shutterSpeed);
+        try {
+            delay = etDelayBetweenFrames.getText().toString();
+            numberOfFrames = etNumberOfFrames.getText().toString();
+            shutterSpeed = etShutterSpeed.getText().toString();
+            delayToFirstFrame = etDelayToFirstFrame.getText().toString();
+            fps = etFps.getText().toString();
+        } catch (NullPointerException npe) {
+            Toast.makeText(this, "found some empty fields, using dummy values", Toast.LENGTH_SHORT).show();
+            delay = "5";
+            numberOfFrames = "300";
+            shutterSpeed = "1";
+            delayToFirstFrame = "1";
+            fps = "30";
+        }
+
+        Intervalometer intervalometer = new Intervalometer(delay,numberOfFrames,shutterSpeed);
+        intervalometer.setStartDelayHours(Integer.parseInt(delayToFirstFrame));
         Movie movie = new Movie(intervalometer);
+        movie.setFPS(Float.parseFloat(fps));
         Reality reality = new Reality(intervalometer);
         Output output = new Output(intervalometer,movie,reality);
         String longOutput = output.getOutput();
-        String simpleOutput = String.format("You gave %s delay for %s frames with %s shutter speed.",delayString,numberOfFrames,shutterSpeed);
+        String simpleOutput = String.format("You gave %s delay for %s frames with %s shutter speed.",delay,numberOfFrames,shutterSpeed);
         String combinedOutput = String.format("%s\n%s\n",simpleOutput,longOutput);
         tvOutput.setText(longOutput);
     }
