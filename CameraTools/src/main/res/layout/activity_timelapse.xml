@@ -1,0 +1,78 @@
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="8"
+        android:id="@+id/etDelayBetweenFrames"
+        android:layout_marginTop="20dp"
+        android:hint="enter delay between frames"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="8"
+        android:id="@+id/etNumberOfFrames"
+        android:hint="enter number of frames"
+        android:layout_alignBaseline="@+id/etDelayBetweenFrames"
+        android:layout_alignBottom="@+id/etDelayBetweenFrames"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="8"
+        android:id="@+id/etShutterSpeed"
+        android:hint="enter shutter speed"
+        android:layout_below="@+id/etDelayBetweenFrames"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="8"
+        android:id="@+id/etFps"
+        android:hint="enter frames per second"
+        android:layout_alignBaseline="@+id/etShutterSpeed"
+        android:layout_alignBottom="@+id/etShutterSpeed"
+        android:layout_alignParentRight="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="8"
+        android:id="@+id/etDelayToFirstFrame"
+        android:hint="enter delay to first frame"
+        android:layout_below="@+id/etShutterSpeed"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compute"
+        android:id="@+id/btnCompute"
+        android:layout_below="@+id/etDelayToFirstFrame"
+        android:layout_centerHorizontal="true"
+        android:onClick="onCompute"
+        android:layout_marginTop="11dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You should never see this."
+        android:id="@+id/tvOutput"
+        android:layout_below="@+id/btnCompute"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="17dp" />
+
+</RelativeLayout>
