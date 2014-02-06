@@ -82,6 +82,10 @@ public class Output {
                     r.getDurationHours()));
         }
 
+        // check that the frame is at least half lit
+        // eg if the movie is 30 FPS, then the shutter speed must be at least 1/60 sec
+        // suggest the correct ND strength or the change in exposure
+
         // check for batteries
         float batteriesNeeded = r.getBatteryUsage(i.getNumberOfFrames());
         if (batteriesNeeded > 1) {

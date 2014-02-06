@@ -22,6 +22,9 @@ public class Intervalometer {
         this.shutterSpeed = shutterSpeed;
     }
 
+    // XXX need a constructor for the Neewer brand
+    // eg it's delay between frames is actually the delay between the start of each frame
+
     // Android loves strings
     public Intervalometer(String interval, String num, String ss) {
         this.intervalBetweenFrames = Integer.parseInt(interval);
