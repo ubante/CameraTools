@@ -3,7 +3,7 @@ package com.ubante.cameratools.models;
 /**
  * Models the memory card in the camera.
  */
-public class MemoryCard {
+public class MemoryCard implements Equipment {
 
     private int capacity; // in GB
 

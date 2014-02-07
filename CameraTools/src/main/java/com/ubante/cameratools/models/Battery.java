@@ -3,7 +3,7 @@ package com.ubante.cameratools.models;
 /**
  * Models the camera battery.
  */
-public class Battery {
+public class Battery implements Equipment {
     private int mah;
     private int mahPerFrame;
     private int mahPerMinute;

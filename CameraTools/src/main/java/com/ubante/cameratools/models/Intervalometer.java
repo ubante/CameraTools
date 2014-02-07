@@ -5,7 +5,7 @@ import android.support.v7.appcompat.R;
 /**
  * Models the settings of the intervalometer.
  */
-public class Intervalometer {
+public class Intervalometer implements Equipment {
 
     private int prefocusTime = 2; // time intervalometer uses to prefocus before shutter release
     private float shutterSpeed;
