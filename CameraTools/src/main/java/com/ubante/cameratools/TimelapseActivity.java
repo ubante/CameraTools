@@ -23,14 +23,15 @@ import com.ubante.cameratools.models.Reality;
  * -- add this as an option
  * - handle NPE on empty et fields
  * - scrollable
+ * -- turn the output into an activity or a fragment
  * -- change from FrameLayout?
  * - clear screen
  * - make it clear what the inputted fields are for
  * - if shutter speed is too fast (read FPS),
  * -- warn and suggest exposure changes and ND
  * - maybe accept the photo's index number so the user can have it recorded somewhere
- * - maybe accept a countdown timer
- * - have the intervalometer changable to make delay be between exposure starts instead of between stops and starts
+ * - maybe display a countdown timer
+ * - have the intervalometer configurable to make delay be between exposure starts instead of between stops and starts
  */
 public class TimelapseActivity extends ActionBarActivity {
 

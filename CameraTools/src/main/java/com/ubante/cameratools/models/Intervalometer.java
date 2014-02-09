@@ -1,7 +1,5 @@
 package com.ubante.cameratools.models;
 
-import android.support.v7.appcompat.R;
-
 /**
  * Models the settings of the intervalometer.
  */
