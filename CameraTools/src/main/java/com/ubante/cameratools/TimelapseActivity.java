@@ -32,6 +32,7 @@ import com.ubante.cameratools.models.Reality;
  * - maybe accept the photo's index number so the user can have it recorded somewhere
  * - maybe display a countdown timer
  * - have the intervalometer configurable to make delay be between exposure starts instead of between stops and starts
+ * - Add a bit describing the max speed of a human at 100' that will not blur.
  */
 public class TimelapseActivity extends ActionBarActivity {
 

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TimelapseActivity"
+            android:name="com.ubante.cameratools.TimelapseActivity"
             android:label="@string/title_activity_intervalometry" >
         </activity>
     </application>
