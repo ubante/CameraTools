@@ -33,6 +33,7 @@ import com.ubante.cameratools.models.Reality;
  * - maybe display a countdown timer
  * - have the intervalometer configurable to make delay be between exposure starts instead of between stops and starts
  * - Add a bit describing the max speed of a human at 100' that will not blur.
+ * - Make sure the cards speed can handle the delay (most likely)
  */
 public class TimelapseActivity extends ActionBarActivity {
 
